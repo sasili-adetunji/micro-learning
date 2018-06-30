@@ -53,6 +53,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (= 4.2.5)
+  bundler
   pg
   pry
   rake
