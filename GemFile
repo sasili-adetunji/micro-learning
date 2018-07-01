@@ -6,6 +6,7 @@ gem 'sinatra-activerecord'
 gem 'rake'
 gem 'bundler'
 gem 'haml'
+gem 'bcrypt'
 
 group :development do
   gem 'shotgun'
