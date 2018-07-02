@@ -6,3 +6,7 @@ class User < ActiveRecord::Base
   }, uniqueness: true
   validates :email, uniqueness: true
 end
+
+class Category < ActiveRecord::Base
+  validates :category, uniqueness: true
+end

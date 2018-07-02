@@ -6,7 +6,22 @@ class MicroLearning
   end
 
   get '/admin/home' do
-    return "This is the admin"
+    @category = Category.all()
+    haml :admin
+  end
+
+  get '/admin/fail' do
+    return "Oh no something happended"
+  end
+  post '/admin/home' do
+    category = params[:category]
+    @new_category = Category.new(category: category)
+    @new_category.save
+    if @new_category.save
+      redirect to "/admin/home"
+    else
+      redirect to "/admin/fail"
+    end    
   end
 
   post "/admin/signup" do
