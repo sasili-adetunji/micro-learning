@@ -7,7 +7,6 @@ class ApplicationController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views/") }
   set :session_secret, "secret_courses"
 
-
   # User will only see homepage IF they are not currently logged in
   get '/' do
     if logged_in?

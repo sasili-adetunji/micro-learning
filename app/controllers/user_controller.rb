@@ -10,9 +10,6 @@ class UserController < ApplicationController
     end
   end
 
-  get '/topics' do
-    return "Nice on here are the topics"
-  end
     # CREATE a new user based on form information
   post '/signup' do
     @user = User.new(username: params[:username], email: params[:email], password: params[:password])

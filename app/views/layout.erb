@@ -58,17 +58,16 @@
               </button>
               <ul class="mui-dropdown__menu mui-dropdown__menu--right">
                 <li><a href="/users/<%=current_user.id%>/edit">Update my account</a></li>
-                <li><a href="/users">View users</a></li>
-                <li><a href="/courses">View courses</a></li>
+                <li><a href="/courses">View topics</a></li>
 
-                <%# INSTRUCTOR menu links %>
-                <% if current_user.instructor%>
-                  <li><a href="/courses/new">Create new course</a></li>
-                  <li><a href="/teaching">My courses</a></li>
+                <%# Admin menu links %>
+                <% if current_user.admin%>
+                  <li><a href="/courses/new">Create new topic</a></li>
+                  <li><a href="/teaching">My topics</a></li>
 
-                <%# STUDENT menu links %>  
+                <%# User menu links %>  
                 <%else%>
-                  <li><a href="/enrolled">My enrollment</a></li>
+                  <li><a href="/enrolled">My topics</a></li>
                 <%end%>
                 <li><a href="/logout">Log out</a></li>
               </ul>
