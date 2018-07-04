@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>📚 Online Course Management</title>
+    <title>MicroLearning Application</title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -58,16 +58,16 @@
               </button>
               <ul class="mui-dropdown__menu mui-dropdown__menu--right">
                 <li><a href="/users/<%=current_user.id%>/edit">Update my account</a></li>
-                <li><a href="/courses">View topics</a></li>
+                <li><a href="/topics">View topics</a></li>
 
                 <%# Admin menu links %>
                 <% if current_user.admin%>
-                  <li><a href="/courses/new">Create new topic</a></li>
+                  <li><a href="/topics/new">Create new topic</a></li>
                   <li><a href="/teaching">My topics</a></li>
 
                 <%# User menu links %>  
                 <%else%>
-                  <li><a href="/enrolled">My topics</a></li>
+                  <li><a href="/subscribed">My topics</a></li>
                 <%end%>
                 <li><a href="/logout">Log out</a></li>
               </ul>

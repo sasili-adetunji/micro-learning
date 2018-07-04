@@ -39,7 +39,7 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect to "/topics"
     else
-      flash[:error] = "Sorry, we were not able to find a user with that username and password."
+      flash[:error] = "Incorrect login credentials"
       redirect to "/login"
     end
   end

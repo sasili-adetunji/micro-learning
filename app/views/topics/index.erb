@@ -2,12 +2,14 @@
     <div class="mui-col-md-12">
     <% if flash.has?(:error) %>
         <h3 class="error"><%= flash[:error] %></h3>
+    <% elsif flash.has?(:message) %>
+        <h3 class="message"><%= flash[:message] %></h3>
     <% end %>
-    
+  
     <h1>All Topics Available</h1>
         <ul><% @topics.each do |topic|%>
             <li>
-            <h3>Course name: <a href="/topics/<%=course.id%>"><%= topic.name%></h3>
+            <h3>Topic name: <a href="/topics/<%=topic.id%>"> <%= topic.name%></h3> </a>
             <p><span class="mui--divider-right">Description &nbsp;</span>
                 <%= topic.description %></p>
             </li>
