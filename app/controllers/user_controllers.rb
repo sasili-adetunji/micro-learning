@@ -1,6 +1,6 @@
 require 'bcrypt'
 
-class MicroLearning
+class UserController < ApplicationController
   get '/admin/signup' do
     haml :signup
   end

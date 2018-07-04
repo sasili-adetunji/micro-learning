@@ -1,9 +1,10 @@
-require 'sinatra'
-require 'bundler/setup'
 
-Bundler.require
+require './config/environment'
 
-ENV['RACK_ENV'] = "development"
+if ActiveRecord::Migrator.needs_migration?
+  raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
+end
 
-require File.join(File.dirname(__FILE__), 'app.rb')
-run MicroLearning
+use Rack::MethodOverride
+use UserController
+run ApplicationController
