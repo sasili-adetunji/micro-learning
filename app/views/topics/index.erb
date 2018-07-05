@@ -1,0 +1,26 @@
+<div class="mui-row">
+    <div class="mui-col-md-12">
+    <% if flash.has?(:error) %>
+        <h3 class="error"><%= flash[:error] %></h3>
+    <% elsif flash.has?(:message) %>
+        <h3 class="message"><%= flash[:message] %></h3>
+    <% end %>
+  
+    <h1>All Topics Available</h1>
+        <ul><% @topics.each do |topic|%>
+            <li>
+            <h3>Topic name: <a href="/topics/<%=topic.id%>"> <%= topic.name%></h3> </a>
+            <p><span class="mui--divider-right">Description &nbsp;</span>
+                <%= topic.description %></p>
+            </li>
+        <%end%></ul>
+    </div>
+    <div class="mui-col-md-12">
+        <%# IF User, show topics I'm subscribed %>
+        <% if !current_user.admin %>
+            <h3><a href="/enrolled">Click here for my topics </a></h3>
+        <% else %> <%# IF Admin, show topics I add%>
+            <h3><a href="/teaching"><p>Click here for my topics </a></h3>
+        <% end %>
+    </div>
+</div>

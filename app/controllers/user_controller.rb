@@ -10,9 +10,6 @@ class UserController < ApplicationController
     end
   end
 
-  get '/topics' do
-    return "Nice on here are the topics"
-  end
     # CREATE a new user based on form information
   post '/signup' do
     @user = User.new(username: params[:username], email: params[:email], password: params[:password])
@@ -42,7 +39,7 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect to "/topics"
     else
-      flash[:error] = "Sorry, we were not able to find a user with that username and password."
+      flash[:error] = "Incorrect login credentials"
       redirect to "/login"
     end
   end
