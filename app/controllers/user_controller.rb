@@ -43,4 +43,15 @@ class UserController < ApplicationController
       redirect to "/login"
     end
   end
+
+  # Log Out process
+  get '/logout' do
+    if logged_in?
+      session.clear
+      flash[:message] = "You have successfully logged out"
+      redirect to "/login"
+    else
+      redirect to "/"
+    end
+  end
 end
