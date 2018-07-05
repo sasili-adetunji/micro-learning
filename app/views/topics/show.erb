@@ -1,0 +1,25 @@
+<div class="mui-row">
+    <div class="mui-col-md-12">  
+
+        <% if flash.has?(:error) %>
+            <h3 class="error"><%= flash[:error] %></h3>
+        <% elsif flash.has?(:message) %>
+            <h3 class="message"><%= flash[:message] %></h3>
+        <% end %>
+            <h2><%= @topic.name%> </h2>
+            <h4><span class="mui--divider-right">Description &nbsp;</span> <%= @topic.description%></h4>
+    </div>
+
+        <% if current_user.admin %>
+            <div class="mui-col-md-12 mui--divider-bottom">   
+                <h3><a href="/topics/<%=@topic.id%>/edit"><p>Click here to edit topic details </a></h3><br>
+            </div> 
+
+        <% else %>                    
+            <form method="post" action="/topics/<%=@topic.id%>/registration" class="mui-form">
+                <p><button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">Subscribe</button>
+            </form>
+        <% end %>
+
+      </div>
+</div>

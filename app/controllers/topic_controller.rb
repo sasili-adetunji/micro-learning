@@ -41,4 +41,15 @@ class TopicController < ApplicationController
         end
     end
 
+    #  users can view a single topic page
+    get '/topics/:id' do
+        @topic = Topic.find_by_id(params[:id])
+
+        if logged_in?
+            erb :"/topics/show"
+        else
+            flash[:error] = "You are not currently logged in!"
+            redirect to "/login"
+        end
+    end
 end
