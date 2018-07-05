@@ -1,5 +1,3 @@
-require 'bcrypt'
-
 class UserController < ApplicationController
 
   get '/signup' do
