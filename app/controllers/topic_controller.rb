@@ -79,4 +79,20 @@ class TopicController < ApplicationController
             redirect to "/topics/#{@topic.id}"
         end
     end
+
+    # admin can delete a topic
+    delete '/topics/:id' do
+        @topic = Topic.find_by_id(params[:id])
+        if current_user.admin
+            if @topic.destroy
+                flash[:message] = "Successfully deleted topic."
+                redirect to "/topics"
+            else 
+                flash[:message] = "Something went wrong. Please try to delete topic again."
+                redirect to "/topics/#{@topic.id}/edit"
+            end
+        else
+            redirect to "/topics/#{@topic.id}"
+        end
+    end
 end

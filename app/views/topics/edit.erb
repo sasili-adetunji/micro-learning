@@ -12,5 +12,9 @@
         </div>
         <p><button type="submit" class="mui-btn mui-btn--small mui-btn mui-btn--raised mui-btn--primary">Update Topic</button>
         </form>
+        <form method="post" action="/topics/<%=@topic.id%>" class="mui-form">
+            <input id="hidden" type="hidden" name="_method" value="delete">
+            <button type="submit" class="mui-btn mui-btn--small mui-btn mui-btn--raised mui-btn--danger">Delete Topic</button>
+        </form>
     </div>
 </div>
