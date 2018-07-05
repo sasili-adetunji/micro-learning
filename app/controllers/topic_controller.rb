@@ -1,5 +1,3 @@
-require 'bcrypt'
-
 class TopicController < ApplicationController
 
   # View all topics
@@ -12,7 +10,6 @@ class TopicController < ApplicationController
       redirect to :"/login"
     end
   end
-
 
     # admin can view form to create a new topic
     get '/topics/new' do
@@ -50,6 +47,36 @@ class TopicController < ApplicationController
         else
             flash[:error] = "You are not currently logged in!"
             redirect to "/login"
+        end
+    end
+
+    get '/topics/:id/edit' do
+        @topic = Topic.find_by_id(params[:id])
+        if logged_in?
+            if current_user.admin
+                erb :"/topics/edit"
+            else
+                flash[:error] = "You are not an admin!"
+                redirect to :"/login"
+            end
+        end
+    end
+
+    # admin can UPDATE topic
+    patch '/topics/:id' do
+        @topic = Topic.find_by_id(params[:id])
+        @topic.update(name: params[:name], description: params[:description])
+
+        if current_user.admin
+            if @topic.save
+                flash[:message] = "Successfully edited topic."
+                redirect to "/topics/#{@topic.id}"
+            else 
+                flash[:message] = "Something went wrong. Please try to edit topic again."
+                redirect to "/topics/#{@topic.id}/edit"
+            end
+        else
+            redirect to "/topics/#{@topic.id}"
         end
     end
 end
