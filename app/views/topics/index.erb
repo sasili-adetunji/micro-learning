@@ -18,9 +18,7 @@
     <div class="mui-col-md-12">
         <%# IF User, show topics I'm subscribed %>
         <% if !current_user.admin %>
-            <h3><a href="/enrolled">Click here for my topics </a></h3>
-        <% else %> <%# IF Admin, show topics I add%>
-            <h3><a href="/teaching"><p>Click here for my topics </a></h3>
+            <h3><a href="/subscribed"> My topics </a></h3>
         <% end %>
     </div>
 </div>
