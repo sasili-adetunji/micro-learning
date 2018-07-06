@@ -95,4 +95,45 @@ class TopicController < ApplicationController
             redirect to "/topics/#{@topic.id}"
         end
     end
+
+    post '/topics/:id/subscribe' do
+        @topic = Topic.find_by_id(params[:id])
+        if !current_user.admin
+            @topic_subscribe = UserTopic.create(user_id: session[:user_id], topic_id: params[:id])
+            if @topic_subscribe.save
+                flash[:message] = "User topics updated!"
+                redirect to "/topics/#{@topic.id}"
+            else
+                redirect to "/topics/#{@topic.id}"
+            end
+        else
+            redirect to :"/login"
+        end
+    end
+  # user can view courses subscribed
+    get '/subscribed' do
+
+        if logged_in?
+            @subscribed = UserTopic.where(user_id: current_user.id)
+            if !current_user.admin 
+                erb :"/topics/my_topic"
+            else
+                redirect to :"/topics"
+            end
+        else
+            redirect to :"/login"
+        end
+    end
+
+    # user can delete his topic
+    delete '/subscribed/topics/:id' do
+        @user_topic = UserTopic.where(topic_id: params[:id])
+        if current_user.id == @user_topic[0].user_id
+            @user_topic.destroy_all
+            flash[:message] = "Successfully deleted topic."
+            redirect to "/subscribed"
+        else
+            redirect to "/topics/"
+        end
+    end
 end
