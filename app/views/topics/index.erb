@@ -12,13 +12,6 @@
             <h3>Topic name: <a href="/topics/<%=topic.id%>"> <%= topic.name%></h3> </a>
             <p><span class="mui--divider-right">Description &nbsp;</span>
                 <%= topic.description %></p>
-            <%# IF admin, show add resource %>
-        <% if current_user.admin %>
-            <form method="get" action="resource/<%=topic.id%>" class="mui-form">
-                <p><button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">Add Resource</button>
-            </form>
-        <% end %>
-
             </li>
         <%end%></ul>
     </div>
