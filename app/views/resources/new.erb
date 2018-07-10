@@ -1,0 +1,26 @@
+<div class="mui-row">
+    <div class="mui-col-md-12">
+        <h1>Add resource</h1>
+        <form method="post" action="/resources" class="mui-form">
+
+            <legend>Resource name</legend>
+            <div class="mui-textfield">
+                <input type="text" name="title" id="name" required/>
+            </div>
+
+            <legend>Description</legend>
+            <div class="mui-textfield">
+                <textarea name="description" id="description" required></textarea>
+            </div>
+            
+            <legend>Resource url</legend>     
+            <div class="mui-textfield">
+                <input type="text" name="url" id="name" required/>
+            </div>
+            <br><button type="submit" class="mui-btn mui-btn--primary">Add Resource</button>
+        </form>
+        <% if flash.has?(:error) %>
+            <h3 class="error"><%= flash[:error] %></h3>
+        <% end %>
+    </div>
+</div>
