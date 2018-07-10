@@ -41,7 +41,9 @@ class TopicController < ApplicationController
     #  users can view a single topic page
     get '/topics/:id' do
         @topic = Topic.find_by_id(params[:id])
-
+        @resources = Resource.all
+        @topic = Topic.find_by(id: params[:id])
+        @res = @topic.resources
         if logged_in?
             erb :"/topics/show"
         else
