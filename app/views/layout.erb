@@ -63,6 +63,8 @@
                 <%# Admin menu links %>
                 <% if current_user.admin%>
                   <li><a href="/topics/new">Create new topic</a></li>
+                  <li><a href="/resources/new">Create new Resource</a></li>
+
                   <% else %>
                     <li><a href="/subscribed">My topics</a></li>
                 <%end%>

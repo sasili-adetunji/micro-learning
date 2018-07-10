@@ -8,4 +8,5 @@ end
 use Rack::MethodOverride
 use UserController
 use TopicController
+use ResourceController
 run ApplicationController
