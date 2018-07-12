@@ -9,6 +9,7 @@ gem 'thin'
 gem 'bcrypt'
 gem "tux"
 gem 'rack-flash3'
+gem 'pg'
 
 group :test do
   gem 'rspec'
@@ -22,10 +23,6 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-group :production do
-  # Use Postgresql for ActiveRecord
-  gem 'pg'
-end
 
 group :development do
   gem 'shotgun'
