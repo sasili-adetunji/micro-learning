@@ -1,16 +1,28 @@
 <div class="mui-row">
     <div class="mui-col-md-12">
         <h1>My topic list</h1>
-
-        <ul><% @subscribed.each do |topic|%>
-            <li>
-             <h3> <a href="/topics/<%=topic.topic_id%>"> <%= Topic.find_by_id(topic.topic_id).name%></a>
-                <form method="post" action="subscribed/topics/<%= topic.topic_id%>" class="mui-form">
+   <table class="striped">
+        <thead>
+          <tr>
+              <th>Topic</th>
+              <th>Resources</th>
+              <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @subscribed.each do |topic|%>
+          <tr>
+            <td><a href="/topics/<%=topic.topic_id%>"> <%= Topic.find_by_id(topic.topic_id).name%></td>
+            <td> <form method="get" action="resources/<%= topic.topic_id%>" class="mui-form">
+                  <button type="submit" class="mui-btn mui-btn--small mui-btn--primary">Resources</button>
+                </form></td>
+            <td> <form method="post" action="subscribed/topics/<%= topic.topic_id%>" class="mui-form">
                   <input id="hidden" type="hidden" name="_method" value="delete">
                   <button type="submit" class="mui-btn mui-btn--small mui-btn--danger">Delete Topic</button>
                 </form>
-              </h3>    
-            </li>
+            </td>
+          </tr>
         <%end%>
-        </ul>
+        </tbody>
+      </table>
     </div>
