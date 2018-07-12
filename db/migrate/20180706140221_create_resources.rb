@@ -1,4 +1,4 @@
-class CreateResources < ActiveRecord::Migration
+class CreateResources < ActiveRecord::Migration[5.2]
     create_table :resources do |t|
       t.string :title
       t.string :description
