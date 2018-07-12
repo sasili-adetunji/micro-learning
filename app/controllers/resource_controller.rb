@@ -58,6 +58,18 @@ class ResourceController < ApplicationController
       redirect to :"/login"
     end
   end
+
+  # admin and users can view resources of a particular topic
+  get '/resources/:id' do
+    if logged_in?
+      @topic = Topic.find_by(id: params[:id])
+      @resource = @topic.resources
+      @resources = @resource.sample(1)
+        erb :"/resources/show"
+    else
+      redirect to :"/login"
+    end
+  end
 end
 
 

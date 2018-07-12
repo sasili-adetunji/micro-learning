@@ -9,18 +9,6 @@
             <h2><%= @topic.name%> </h2>
             <h4><span class="mui--divider-right">Description &nbsp;</span> <%= @topic.description%></h4>
     </div>
-       <ul>
-            <% @res.each do |re|%>
-                <li>
-                    <label>
-                        <%= re.title%> 
-                    </label>
-            <p>Description: <span><%= re.description%></span>
-            <p> URL: <span><%= re.url%></span>
-
-                </li>
-            <%end%>
-        </ul>
         <% if current_user.admin %>
             <div class="mui-col-md-12 mui--divider-bottom"> 
                 <h3><a href="/topics/<%=@topic.id%>/edit"><p>Click here to edit topic details </a></h3><br>
@@ -38,9 +26,12 @@
           </ul>
             <p><button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">Add Resource</button>
             </form>
-        <% else %>                    
+        <% else %>                   
             <form method="post" action="/topics/<%=@topic.id%>/subscribe" class="mui-form">
                 <p><button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">Subscribe</button>
+            </form>
+            <form method="get" action="/resources/<%=@topic.id%>" class="mui-form">
+                <p><button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">Resources</button>
             </form>
         <% end %>
 
