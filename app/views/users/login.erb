@@ -1,30 +1,20 @@
-<div class="mui-row">
-    <div class="mui-col-md-12">
-        <h1>Log in</h1>
-    </div>
-    <div class="mui-col-md-8">
-        <form method="post" action="/login" class="mui-form"> 
-
-                <div class="mui-textfield">
-                    <input type="text" placeholder="Username" name="username" id="username" required/>
-                </div>
-                
-                <div class="mui-textfield">
-                    <input type="password" placeholder="Password" name="password" id="password" required/>
-                </div>
-   
-            <div>
-            <button type="submit" class="mui-btn mui-btn--primary">Submit </button>
-            </div>
-        </form>
-
+<div class="row">
+    <div class="col s6 offset-s3 z-depth-1" id="panell">
         <% if flash.has?(:error) %>
-            <h3 class="error"><%= flash[:error] %></h3>
-        <% elsif flash.has?(:message) %>
-            <h3 class="message"><%= flash[:message] %></h3>
-            <h3><a href="/" style="text-decoration: underline;">Back to homepage</a><h3>
-        <% elsif flash.has?(:status) %>
-        <h3 class="message"><%= flash[:status] %></h3>
+            <h5 class="error"><%= flash[:error] %></h5>
         <% end %>
+        <h5 id="title">Login Form</h5>
+            <form method="post" action="/login" class="form"> 
+                <div class="input-field" id="username">
+                    <input  type="text"  name="username" required="Username required" class="validate">
+                        <label for="username">Username</label>
+                </div>
+                <div class="input-field" id="password">
+                    <input  type="password"  required="password required" name="password" class="validate">
+                        <label for="password">Password</label>
+                </div>
+                <button type="submit" class="waves-effect waves-light btn"  id="loginbtn">Login</button>
+            </form>
+        <p class="login-link"> New User? <a href="/signup"> Signup Here </a> </p>
     </div>
 </div>

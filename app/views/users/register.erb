@@ -1,34 +1,33 @@
-<div class="mui-row">
-    <div class="mui-col-md-12">
-        <h1>Sign up</h1>
-
-        <form method="post" action="/signup" class="mui-form"> 
-
-            <div class="mui-textfield"> 
-            <input type="text" placeholder="Username" name="username" id="username" required/>
-            </div>
-
-            <div class="mui-textfield"> 
-            <input type="email" placeholder="Email" name="email" id="email" required/>
-            </div>
-
-            <div class="mui-textfield">
-            <input type="password" placeholder="Password" name="password" id="password" required/>
-            </div>
-
-            <h3>Are you an Admin?</h3>
-            <div class="mui-radio">
-                <label><input type="radio" name="admin" value="yes" />Yes</label>
-            </div>
-            <div class="mui-radio">
-                <label><input type="radio" name="admin" value="no" checked />No</label>
-            </div>
-
-            <button type="submit" class="mui-btn mui-btn--primary">Register </button>
-        </form>
-
+<div class="row">
+    <div class="col s6 offset-s3 z-depth-1" id="panell">
         <% if flash.has?(:error) %>
-            <h3 class="error"><%= flash[:error] %></h3>
+            <h5 class="error"><%= flash[:error] %></h5>
         <% end %>
+        <h5 id="title">Signup Form</h5>
+            <form method="post" action="/signup" class="form"> 
+                <div class="input-field" id="username">
+                    <input  type="text" required="Username required" name="username" class="validate">
+                        <label for="username">Username</label>
+                </div>
+                <div class="input-field" id="email">
+                    <input  type="text" required="Email required" name="email" class="validate">
+                        <label for="email">Email</label>
+                </div>
+                <div class="input-field" id="password">
+                    <input  type="password" required="password required" name="password" class="validate">
+                        <label for="password">Password</label>
+                </div>
+                <p class="login-link"><strong> Are you an admin </strong> </p>
+               <label class="login-link">
+                    <input name="admin" value="yes" type="radio" />
+                        <span>Yes</span>
+                </label>
+                <label>
+                    <input name="admin" value="no" type="radio" />
+                        <span>No</span>
+                </label>
+                <button type="submit" class="waves-effect waves-light btn"  id="loginbtn">Signup</button>
+            </form>
+        <p class="login-link"> Already a user? <a href="/login"> Login Here </a> </p>
     </div>
 </div>

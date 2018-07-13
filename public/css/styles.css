@@ -1,0 +1,65 @@
+#panell{
+  margin-top: 100px;
+  padding: 0px;
+}
+#loginbtn{
+  float: right;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+#title{
+  background-color: #2bbbad;
+  color: white;
+  padding: 8px;
+  margin-top: 0px
+}
+form{
+  padding:0px;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+#username,#password,#email{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#checkbox{
+  margin-left: 30px;
+}
+body {
+  background-color: #eee;
+  }
+body > .index {
+   background-color: #f7f2fc;
+   min-height: inherit; 
+   border-left: 1px solid #ddd; 
+  border-right: 1px solid #ddd;
+   box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1); 
+}
+.appbar {
+  background: #2bbbad;
+}
+.appbar .brand {
+  line-height: 56px;
+  font-size: 3rem;
+}
+h5.error {
+  color: red;
+  text-align: center;
+}
+h3.deleted {
+  color: red;
+}
+h3.message {
+  color: #0091EA;
+}
+h3.status {
+  color: #0091EA;
+}
+
+.brand-logo {
+  margin-left: 30px;
+}
+
+.login-link{
+  margin-left: 20px;
+}

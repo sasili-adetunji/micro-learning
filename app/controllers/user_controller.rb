@@ -8,7 +8,7 @@ class UserController < ApplicationController
     end
   end
 
-    # CREATE a new user based on form information
+  # CREATE a new user based on form information
   post '/signup' do
     @user = User.new(username: params[:username], email: params[:email], password: params[:password])
     @user.admin = params[:admin] == "yes" ? true : false
