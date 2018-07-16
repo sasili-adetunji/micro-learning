@@ -1,20 +1,20 @@
-<div class="mui-row">
-    <div class="mui-col-md-12">
-        <form method="post" action="/topics/<%=@topic.id%>" class="mui-form">
-        <input id="hidden" type="hidden" name="_method" value="patch">
-        <legend>topic name</legend>
-        <div class="mui-textfield">
-            <input type="text" name="name" id="name" value="<%= @topic.name%>"/>
+<div class="row">
+    <form method="post" action="/topics/<%=@topic.id%>" class="mui-form">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <div class="row">
+        <div class="input-field col s6">
+        <input type="text" name="name" id="name" value="<%= @topic.name%>"/>
         </div>
-        <legend>Description</legend>
-        <div class="mui-textfield">
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
             <textarea name="description" id="description"><%= @topic.description%></textarea>
         </div>
-        <p><button type="submit" class="mui-btn mui-btn--small mui-btn mui-btn--raised mui-btn--primary">Update Topic</button>
-        </form>
-        <form method="post" action="/topics/<%=@topic.id%>" class="mui-form">
-            <input id="hidden" type="hidden" name="_method" value="delete">
-            <button type="submit" class="mui-btn mui-btn--small mui-btn mui-btn--raised mui-btn--danger">Delete Topic</button>
-        </form>
     </div>
+    <br><button type="submit" class="btn btn--primary">Update topic</button>
+    </form>
+    <form method="post" action="/topics/<%=@topic.id%>" class="mui-form">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <button type="submit" class="btn btn--primary">Delete Topic</button>
+    </form>
 </div>

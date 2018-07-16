@@ -1,24 +1,24 @@
-<div class="mui-row">
-    <div class="mui-col-md-12">
-    <% if flash.has?(:error) %>
-        <h3 class="error"><%= flash[:error] %></h3>
-    <% elsif flash.has?(:message) %>
-        <h3 class="message"><%= flash[:message] %></h3>
-    <% end %>
-  
-    <h1>All Topics Available</h1>
-        <ul><% @topics.each do |topic|%>
-            <li>
-            <h3>Topic name: <a href="/topics/<%=topic.id%>"> <%= topic.name%></h3> </a>
-            <p><span class="mui--divider-right">Description &nbsp;</span>
-                <%= topic.description %></p>
-            </li>
-        <%end%></ul>
+<div class="row">
+<h5> All Topics </h5>
+<% if @topics.length > 0 %>
+<% @topics.each do |topic|%>
+    <div class="">
+        <div class="col s12 m6">
+                <div class="card-panel teal lighten-2 topic">
+                <a href="/topics/<%=topic.id%>">
+                    <div class="white-text">
+                        <p><%=topic.name%></p>
+                        <hr />
+                    </div>
+                </a> 
+                    <div class="white-text">
+                        <p><%=topic.description%></p>
+                    </div>
+                </div> 
+        </div>
     </div>
-    <div class="mui-col-md-12">
-        <%# IF User, show topics I'm subscribed %>
-        <% if !current_user.admin %>
-            <h3><a href="/subscribed"> My topics </a></h3>
-        <% end %>
-    </div>
+   <%end%>
+<% else %>
+<h5> No topics yet </h5>
+<%end%>
 </div>

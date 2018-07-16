@@ -1,5 +1,5 @@
 <h4> Resources for <%=@topic.name%> </h4>
-<div class="mui-row">
+<div class="row">
 <% if @resources.length > 0 %>
 <% @resources.each do |resource|%>
 <div class="row">
@@ -15,5 +15,7 @@
       </div>
     </div>
    <%end%>
+<%else%>
+<h4> There are no resources yet for <%=@topic.name%> </h4>
 <%end%>
 </div>

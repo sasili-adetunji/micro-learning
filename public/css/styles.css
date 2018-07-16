@@ -32,7 +32,7 @@ body > .index {
    background-color: #f7f2fc;
    min-height: inherit; 
    border-left: 1px solid #ddd; 
-  border-right: 1px solid #ddd;
+    border-right: 1px solid #ddd;
    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1); 
 }
 .appbar {
@@ -62,4 +62,33 @@ h3.status {
 
 .login-link{
   margin-left: 20px;
+}
+
+.topic a :hover{
+  background-color: #94d1c2;
+}
+
+.details {
+  background-color: #f4f9f8;
+}
+
+body .container {
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* .card-panel {
+ width:20px;
+} */
+
+body .resources {
+  background-color: #f7f2fc;
+  min-height: inherit; 
+  border-left: 200px solid #ddd; 
+  border-right: 1px solid #ddd;
+  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1); 
+
+}
+
+.add-resource {
+  padding-top: 10px;
 }

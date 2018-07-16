@@ -63,8 +63,8 @@ class ResourceController < ApplicationController
   get '/resources/:id' do
     if logged_in?
       @topic = Topic.find_by(id: params[:id])
-      @resource = @topic.resources
-      @resources = @resource.sample(1)
+      @resources = @topic.resources
+      @all_resources = Resource.all
         erb :"/resources/show"
     else
       redirect to :"/login"

@@ -1,39 +1,24 @@
-<div class="mui-row">
-    <div class="mui-col-md-12">  
-
-        <% if flash.has?(:error) %>
-            <h3 class="error"><%= flash[:error] %></h3>
-        <% elsif flash.has?(:message) %>
-            <h3 class="message"><%= flash[:message] %></h3>
-        <% end %>
-            <h2><%= @topic.name%> </h2>
-            <h4><span class="mui--divider-right">Description &nbsp;</span> <%= @topic.description%></h4>
+<div class="row card-panel teal lighten-2">
+    <div class="col s8">
+        <h4><%= @topic.name%> </h4>
+    <p class="flow-text"><%= @topic.description%></p>
     </div>
-        <% if current_user.admin %>
-            <div class="mui-col-md-12 mui--divider-bottom"> 
-                <h3><a href="/topics/<%=@topic.id%>/edit"><p>Click here to edit topic details </a></h3><br>
-            </div> 
-          <h1>All Resources Available</h1>
-              <ul><% @resources.each do |resource|%>
-                <li>
-                <label>
-                <form method="post" action="/resources/<%=@topic.id%>" class="mui-form">
-                    <input type="checkbox" name="resource_ids[]" value="<%=resource.id%>"> 
-                    <%= resource.title%> 
-                </label>
-                </li>
-            <%end%>
-          </ul>
-            <p><button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">Add Resource</button>
+    <div class="col s4">
+        <h4>Actions </h4> 
+            <% if current_user.admin %>
+            <form method="get" action="/topics/<%=@topic.id%>/edit" class="form">
+                <p><button type="submit" class="btn mui-btn--raised btn--primary">Edit</button>
+            </form>                
+            <form method="get" action="/resources/<%=@topic.id%>" class="form">
+                <p><button type="submit" class="btn mui-btn--raised btn--primary">Add Resources</button>
             </form>
-        <% else %>                   
-            <form method="post" action="/topics/<%=@topic.id%>/subscribe" class="mui-form">
-                <p><button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">Subscribe</button>
+            <% else %>
+            <form method="post" action="/topics/<%=@topic.id%>/subscribe" class="form">
+                <p><button type="submit" class="btn mui-btn--raised btn--primary">Add to my list</button>
+            </form>                
+            <form method="get" action="/resources/<%=@topic.id%>" class="form">
+                <p><button type="submit" class="btn mui-btn--raised btn--primary">View Resources</button>
             </form>
-            <form method="get" action="/resources/<%=@topic.id%>" class="mui-form">
-                <p><button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">Resources</button>
-            </form>
-        <% end %>
-
-      </div>
+            <% end %>
+    </div>
 </div>

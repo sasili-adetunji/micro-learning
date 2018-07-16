@@ -1,22 +1,21 @@
-<div class="mui-row">
-    <div class="mui-col-md-12">
-        <h1>Create a new topic</h1>
-        <form method="post" action="/topics" class="mui-form">
-            <legend>Topic name</legend>
-            <div class="mui-textfield">
-                <input type="text" name="name" id="name" required/>
-            </div>
-
-            <legend>Description</legend>
-            <div class="mui-textfield">
-                <textarea name="description" id="description" required></textarea>
-            </div>
-            
-            <br><button type="submit" class="mui-btn mui-btn--primary">Create topic</button>
-        </form>
-
+    <div class="row">
+        <h3>Create a new topic</h3>
         <% if flash.has?(:error) %>
             <h3 class="error"><%= flash[:error] %></h3>
         <% end %>
+        <form method="post" action="/topics" class="form col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input name="name" id="name" type="text" required>
+            <label for="input_text">Topic name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea name="description" id="description" class="materialize-textarea" required></textarea>
+            <label for="textarea2">Topic Description</label>
+          </div>
+        </div>
+        <br><button type="submit" class="btn btn--primary">Create topic</button>
+      </form>
     </div>
-</div>
