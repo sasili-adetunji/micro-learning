@@ -1,16 +1,20 @@
 <h4> Resources for <%=@topic.name%> </h4>
+  <% if flash.has?(:error) %>
+      <h5 class="error"><%= flash[:error] %></h5>
+  <% end %>
 <div class="row">
 <% if @resources.length > 0 %>
 <% @resources.each do |resource|%>
 <div class="row">
     <div class="col s12 m6">
-      <div class="card blue-grey darken-1">
+      <div class="card-panel teal lighten-2">
         <div class="card-content white-text">
           <p><%=resource.description%></p>
         </div>
-        <div class="card-action">
-        <p>Title: <span><%=resource.title%></span>
-        <p>Url: <span><%=resource.url%></span>
+        <hr />
+        <div class="white-text">
+        <p><span><%=resource.title%></span></p>
+        <p><span><%=resource.url%></span></p>
         </div>
       </div>
     </div>
@@ -18,4 +22,17 @@
 <%else%>
 <h4> There are no resources yet for <%=@topic.name%> </h4>
 <%end%>
+<ul><% @all_resources.each do |resource|%>
+    <li>
+        <label>
+          <form method="post" action="/resources/<%=@topic.id%>" class="form">
+          <input type="checkbox" name="resource_ids[]" value="<%=resource.id%>" /> 
+          <span> <%= resource.title%>  </span>
+        </label>
+      </p>
+    </li>
+  <%end%>
+</ul>
+<button type="submit" class="btn btn--raised btn--primary">Add Resource</button>
+</form>
 </div>

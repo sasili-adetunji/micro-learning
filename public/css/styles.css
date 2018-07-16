@@ -46,13 +46,13 @@ h5.error {
   color: red;
   text-align: center;
 }
-h3.deleted {
+h5.deleted {
   color: red;
 }
-h3.message {
+h5.message {
   color: #0091EA;
 }
-h3.status {
+h5.status {
   color: #0091EA;
 }
 
