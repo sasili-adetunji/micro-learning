@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row topics list">
   <div class="col-md-12">
     <% if @subscribed.length > 0 %>
       <h3>My topic list</h3>
@@ -23,7 +23,7 @@
             <td>
               <form method="post" action="subscribed/topics/<%= topic.id%>" class="form">
                 <input id="hidden" type="hidden" name="_method" value="delete">
-                <button type="submit" class="btn btn--small btn--danger">Delete Topic</button>
+                <button type="submit" class="btn btn--small btn--danger delete-button">Delete Topic</button>
               </form>
             </td>
           </tr>

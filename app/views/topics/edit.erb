@@ -1,20 +1,23 @@
-<div class="row">
+<div class="row edit">
     <form method="post" action="/topics/<%=@topic.id%>" class="mui-form">
     <input id="hidden" type="hidden" name="_method" value="patch">
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
         <input type="text" name="name" id="name" value="<%= @topic.name%>"/>
+         <label for="input_text">Topic name</label> 
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <textarea name="description" id="description"><%= @topic.description%></textarea>
+            <textarea name="description" class="materialize-textarea" id="description"><%= @topic.description%></textarea>
+            <label for="textarea1">Topic Description</label>
         </div>
+        <br><button type="submit" class="btn btn--primary">Update topic</button>
+        </form>
+        <form method="post" action="/topics/<%=@topic.id%>" class="form del-button">
+            <input id="hidden" type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn btn--primary delete-button">Delete Topic</button>
+        </form>
+
     </div>
-    <br><button type="submit" class="btn btn--primary">Update topic</button>
-    </form>
-    <form method="post" action="/topics/<%=@topic.id%>" class="mui-form">
-        <input id="hidden" type="hidden" name="_method" value="delete">
-        <button type="submit" class="btn btn--primary">Delete Topic</button>
-    </form>
 </div>

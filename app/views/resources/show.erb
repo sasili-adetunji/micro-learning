@@ -1,38 +1,49 @@
+<div class="row topics add-resource">
 <h4> Resources for <%=@topic.name%> </h4>
-  <% if flash.has?(:error) %>
-      <h5 class="error"><%= flash[:error] %></h5>
-  <% end %>
-<div class="row">
-<% if @resources.length > 0 %>
-<% @resources.each do |resource|%>
-<div class="row">
-    <div class="col s12 m6">
-      <div class="card-panel teal lighten-2">
-        <div class="card-content white-text">
-          <p><%=resource.description%></p>
-        </div>
-        <hr />
-        <div class="white-text">
-        <p><span><%=resource.title%></span></p>
-        <p><span><%=resource.url%></span></p>
-        </div>
-      </div>
+
+  <div class='row'>
+    <div class="col s10">
+      <% if @resources.length > 0 %>
+        <% @resources.each do |resource|%>
+          <% if flash.has?(:error) %>
+              <h5 class="error"><%= flash[:error] %></h5>
+          <% end %>
+
+          <div class="col s12 m6">
+            <div class="card-panel teal lighten-2">
+              <div class="card-content white-text">
+                <p><%=resource.description%></p>
+              </div>
+              <hr />
+              <div class="white-text">
+              <p><span><%=resource.title%></span></p>
+              <p><span><%=resource.url%></span></p>
+              </div>
+            </div>
+          </div>
+        <%end%>
+      <%else%>
+        <h4> There are no resources yet for <%=@topic.name%> </h4>
+      <%end%>
     </div>
-   <%end%>
-<%else%>
-<h4> There are no resources yet for <%=@topic.name%> </h4>
-<%end%>
-<ul><% @all_resources.each do |resource|%>
-    <li>
-        <label>
-          <form method="post" action="/resources/<%=@topic.id%>" class="form">
-          <input type="checkbox" name="resource_ids[]" value="<%=resource.id%>" /> 
-          <span> <%= resource.title%>  </span>
-        </label>
-      </p>
-    </li>
-  <%end%>
-</ul>
-<button type="submit" class="btn btn--raised btn--primary">Add Resource</button>
-</form>
+    <div class="col s2">
+    <% if @current_user.admin %>
+    Add Resource
+      <ul><% @all_resources.each do |resource|%>
+          <li>
+              <label>
+                <form method="post" action="/resources/<%=@topic.id%>" class="form">
+                <input type="checkbox" name="resource_ids[]" value="<%=resource.id%>" /> 
+                <span> <%= resource.title%>  </span>
+              </label>
+            </p>
+          </li>
+        <%end%>
+      </ul>
+      <button type="submit" class="btn btn--raised btn--primary add-button">Add Resource</button>
+      </form>
+    <%end%>
+    </div>
+  </div>
+
 </div>

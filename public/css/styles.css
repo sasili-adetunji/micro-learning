@@ -31,13 +31,17 @@ body {
     background: url('../images/education.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
 }
-body > .index {
-   background-color: #f7f2fc;
+body .index {
    min-height: inherit; 
-   border-left: 1px solid #ddd; 
-    border-right: 1px solid #ddd;
-   box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1); 
+   box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.index-home{
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5vw;
+    padding: 2vw;
 }
 .appbar {
   background: #2bbbad;
@@ -68,12 +72,13 @@ h5.status {
   margin-left: 20px;
 }
 
-.topic a :hover{
-  background-color: #94d1c2;
-}
-
 .details {
   background-color: #f4f9f8;
+}
+
+.topic :hover{
+  background: #94d1c2 !important;
+  cursor: pointer;
 }
 
 body .container {
@@ -96,4 +101,46 @@ body .resources {
 
 .add-resource {
   padding-top: 10px;
+}
+
+
+.index-link {
+    background-color: #2bbbad;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.topics {
+  color: white;
+}
+
+.edit {
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.del-button {
+    float: right;
+}
+
+.delete-button {
+  background: red;
+}
+
+.add-resource {
+    background: rgba(0,0,0, 0.6);
+    padding: 8px 18px;
+    border-radius: 28px;
+}
+
+.add-button {
+  height: 73px;
+}
+
+.list {
+  background: white;
+  padding: 10px 27px;
+  color: black;
 }

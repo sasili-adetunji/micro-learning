@@ -1,11 +1,11 @@
-    <div class="row">
+    <div class="row edit">
         <h3>Create a new topic</h3>
         <% if flash.has?(:error) %>
             <h3 class="error"><%= flash[:error] %></h3>
         <% end %>
         <form method="post" action="/topics" class="form col s12">
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12">
             <input name="name" id="name" type="text" required>
             <label for="input_text">Topic name</label>
           </div>
