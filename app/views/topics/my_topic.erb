@@ -1,28 +1,35 @@
-<div class="mui-row">
-    <div class="mui-col-md-12">
-        <h1>My topic list</h1>
-   <table class="striped">
-        <thead>
-          <tr>
+<div class="row topics list">
+  <div class="col-md-12">
+    <% if @subscribed.length > 0 %>
+      <h3>My topic list</h3>
+        <table class="striped">
+          <thead>
+            <tr>
               <th>Topic</th>
               <th>Resources</th>
               <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @subscribed.each do |topic|%>
+            </tr>
+          </thead>
+          <tbody>
           <tr>
-            <td><a href="/topics/<%=topic.topic_id%>"> <%= Topic.find_by_id(topic.topic_id).name%></td>
-            <td> <form method="get" action="resources/<%= topic.topic_id%>" class="mui-form">
-                  <button type="submit" class="mui-btn mui-btn--small mui-btn--primary">Resources</button>
-                </form></td>
-            <td> <form method="post" action="subscribed/topics/<%= topic.topic_id%>" class="mui-form">
-                  <input id="hidden" type="hidden" name="_method" value="delete">
-                  <button type="submit" class="mui-btn mui-btn--small mui-btn--danger">Delete Topic</button>
-                </form>
+            <% @subscribed.each do |topic|%>
+          <td>
+              <a href="/topics/<%=topic.id%>"><%= topic.name%>
+            </td>
+            <td> 
+              <form method="get" action="resources/<%= topic.id%>" class="form">
+                <button type="submit" class="btn btn--smallbtn--primary">Resources</button>
+              </form></td>
+            <td>
+              <form method="post" action="subscribed/topics/<%= topic.id%>" class="form">
+                <input id="hidden" type="hidden" name="_method" value="delete">
+                <button type="submit" class="btn btn--small btn--danger delete-button">Delete Topic</button>
+              </form>
             </td>
           </tr>
-        <%end%>
-        </tbody>
-      </table>
-    </div>
+      <%end%>
+      <%else%>
+      <h3>You do not have any yet topics</h3>
+    <%end%>
+  </div>
+</div>

@@ -1,26 +1,27 @@
-<div class="mui-row">
-    <div class="mui-col-md-12">
-        <h1>Add resource</h1>
-        <form method="post" action="/resources" class="mui-form">
-
-            <legend>Resource name</legend>
-            <div class="mui-textfield">
-                <input type="text" name="title" id="name" required/>
-            </div>
-
-            <legend>Description</legend>
-            <div class="mui-textfield">
-                <textarea name="description" id="description" required></textarea>
-            </div>
-            
-            <legend>Resource url</legend>     
-            <div class="mui-textfield">
-                <input type="text" name="url" id="name" required/>
-            </div>
-            <br><button type="submit" class="mui-btn mui-btn--primary">Add Resource</button>
-        </form>
+    <div class="row edit">
+        <h3>Create resource</h3>
         <% if flash.has?(:error) %>
             <h3 class="error"><%= flash[:error] %></h3>
         <% end %>
+        <form method="post" action="/resources" class="form col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="title" id="name" type="text" required>
+            <label for="input_text">Resource name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="url" id="name" type="text" required>
+            <label for="input_text">Resource url</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea name="description" id="description" class="materialize-textarea" required></textarea>
+            <label for="textarea2">Resource Description</label>
+          </div>
+        </div>
+        <br><button type="submit" class="btn btn--primary">Create resource</button>
+      </form>
     </div>
-</div>

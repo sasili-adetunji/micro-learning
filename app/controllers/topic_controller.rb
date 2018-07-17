@@ -104,7 +104,7 @@ class TopicController < ApplicationController
             @topic_subscribe = UserTopic.create(user_id: session[:user_id], topic_id: params[:id])
             if @topic_subscribe.save
                 flash[:message] = "User topics updated!"
-                redirect to "/topics/#{@topic.id}"
+                redirect to "/subscribed"
             else
                 redirect to "/topics/#{@topic.id}"
             end
@@ -114,10 +114,10 @@ class TopicController < ApplicationController
     end
   # user can view courses subscribed
     get '/subscribed' do
-
         if logged_in?
-            @subscribed = UserTopic.where(user_id: current_user.id)
-            if !current_user.admin 
+            if !current_user.admin                
+                @subscribed = current_user.topic
+                # return "Nice one #{current_user.topic}"
                 erb :"/topics/my_topic"
             else
                 redirect to :"/topics"

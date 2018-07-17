@@ -1,20 +1,23 @@
-<div class="mui-row">
-    <div class="mui-col-md-12">
-    <% if flash.has?(:error) %>
-        <h3 class="error"><%= flash[:error] %></h3>
-    <% elsif flash.has?(:message) %>
-        <h3 class="message"><%= flash[:message] %></h3>
-    <% end %>
-  
-    <h1>All Resources Available</h1>
-        <ul><% @resources.each do |resource|%>
-            <li>
-            <h3>Resource name: <a href="/resources/<%=resource.id%>"> <%= resource.title%></h3> </a>
-            <p><span class="mui--divider-right">Description &nbsp;</span>
-                <%= resource.description %></p>
-            <p><span class="mui--divider-right">Url &nbsp;</span>
-                <%= resource.url %></p>
-            </li>
-        <%end%></ul>
+<div class="row topics">
+<h5> All Resources </h5>
+<% if @resources.length > 0 %>
+<% @resources.each do |resource|%>
+    <div class="col s12 m6">
+        <div class="card-panel teal lighten-2">
+            <div class="white-text">
+                <p><%=resource.title%></p>
+                <hr />
+            </div>
+            <div class="white-text">
+                <p><%=resource.description%></p>
+            </div>
+            <div class="white-text">
+                <p><%=resource.url%></p>
+            </div>
+        </div> 
     </div>
+   <%end%>
+<% else %>
+<h5> No Resources yet </h5>
+<%end%>
 </div>

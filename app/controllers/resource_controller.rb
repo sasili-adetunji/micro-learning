@@ -49,10 +49,10 @@ class ResourceController < ApplicationController
       @resources = Resource.find(params[:resource_ids])
       if existing_resources
         flash[:error] = "The resource already existed"
-        return "Existed"
+        redirect to "/resources/#{@topic.id}"
       else
         @topic.resources << @resources
-
+        redirect to "/resources/#{@topic.id}"
       end
     else
       redirect to :"/login"
@@ -63,50 +63,11 @@ class ResourceController < ApplicationController
   get '/resources/:id' do
     if logged_in?
       @topic = Topic.find_by(id: params[:id])
-      @resource = @topic.resources
-      @resources = @resource.sample(1)
+      @resources = @topic.resources
+      @all_resources = Resource.all
         erb :"/resources/show"
     else
-      redirect to :"/login"
+      redirect to "/login"
     end
   end
 end
-
-
-
-
-# class ResourceController < ApplicationController
-
-#   post '/resource/:id' do
-#     if logged_in?
-#         if current_user.admin
-#             @new_resource = Resource.create(title: params[:title], description: params[:description], url: params[:url])
-#             if @new_resource.save
-                # @resource_topic = ResourceTopic.create(topic_id: params[:id], resource_id: @new_resource.id)
-#                 @resource_topic.save    
-#                 erb :"/resources/index"
-#             end
-#         else
-#             flash[:error] = "You are not an admin!"
-#             redirect to "/resources"
-#         end
-#     else
-#         redirect to :"/login"
-#     end
-#   end
- 
-#   # admin can view form to create add resource
-#   get '/resource/:id' do
-#     if logged_in?
-#         @subscribed = UserTopic.where(user_id: current_user.id)
-#         if current_user.admin 
-#             erb :"/resources/index"
-#         else
-#             flash[:error] = "You are not an admin!"
-#             redirect to "/resources"
-#         end
-#     else
-#         redirect to :"/login"
-#     end
-#   end
-# end

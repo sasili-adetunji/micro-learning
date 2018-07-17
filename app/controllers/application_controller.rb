@@ -3,9 +3,12 @@ require 'sinatra/activerecord'
 
 class ApplicationController < Sinatra::Base
   enable :sessions
+  enable :static
   use Rack::Flash
   set :views, Proc.new { File.join(root, "../views/") }
+  set :public_folder, 'public'
   set :session_secret, "secret_courses"
+
 
   # User will only see homepage IF they are not currently logged in
   get '/' do
