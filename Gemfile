@@ -10,6 +10,11 @@ gem 'bcrypt'
 gem "tux"
 gem 'rack-flash3'
 gem 'pg'
+gem 'rufus-scheduler', '~> 3.2'
+gem 'pony', '~> 1.12'
+gem 'foreman'
+gem 'require_relative'
+gem 'dotenv'
 
 group :test do
   gem 'rspec'

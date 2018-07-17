@@ -25,9 +25,13 @@ form{
 #checkbox{
   margin-left: 30px;
 }
+
 body {
-  background-color: #eee;
-  }
+    background-color: #eee;
+    background: url('../images/education.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 body > .index {
    background-color: #f7f2fc;
    min-height: inherit; 
@@ -73,12 +77,13 @@ h5.status {
 }
 
 body .container {
+padding-top: 10vh;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-/* .card-panel {
- width:20px;
-} */
+body .auth{
+  color: white;
+}
 
 body .resources {
   background-color: #f7f2fc;
