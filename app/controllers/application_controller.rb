@@ -1,5 +1,4 @@
-require 'sinatra'
-require 'sinatra/activerecord'
+require './config/environment'
 
 class ApplicationController < Sinatra::Base
   enable :sessions
@@ -18,6 +17,11 @@ class ApplicationController < Sinatra::Base
         erb :index
     end
   end
+
+  # get '/' do
+  #   "About MicroLearning"
+  #   erb :"index"
+  # end
 
   helpers do
 
