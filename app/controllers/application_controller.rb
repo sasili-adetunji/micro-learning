@@ -18,11 +18,6 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  # get '/' do
-  #   "About MicroLearning"
-  #   erb :"index"
-  # end
-
   helpers do
 
     # Check if a user is logged into their account
