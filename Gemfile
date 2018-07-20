@@ -18,6 +18,9 @@ gem 'dotenv'
 
 group :test do
   gem 'rspec'
+  gem 'simplecov'
+  gem 'simplecov-console'
+  gem 'coveralls', require: false
   gem 'capybara'
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'

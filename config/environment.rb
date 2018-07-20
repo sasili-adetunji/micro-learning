@@ -1,16 +1,23 @@
+ENV['SINATRA_ENV'] = ENV['RACK_ENV'] || "development"
+
 require 'bundler/setup'
 require 'rack-flash'
 
-Bundler.require()
+Bundler.require(:default, ENV['SINATRA_ENV'])
 
 configure :development do
-  ENV['SINATRA_ENV'] ||= "development"
+  ActiveRecord::Base.establish_connection(
+    :adapter => "sqlite3",
+    :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
+  )
+end
 
-ActiveRecord::Base.establish_connection(
-  :adapter => "sqlite3",
-  :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
-)
+configure :test do
 
+  ActiveRecord::Base.establish_connection(
+    :adapter => "sqlite3",
+    :database => "db/test.sqlite"
+  )
 end
 
 configure :production do
