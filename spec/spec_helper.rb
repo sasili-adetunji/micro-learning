@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 ENV["RACK_ENV"] = "test"
 
 require 'rack/test'
@@ -5,6 +8,9 @@ require 'rspec'
 require_relative '../config/environment'
 require 'capybara/rspec'
 require 'capybara/dsl'
+require 'simplecov-console'
+require 'coveralls'
+
 
 # remove loggers
 ActiveRecord::Base.logger = nil
