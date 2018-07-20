@@ -3,12 +3,12 @@ require 'spec_helper'
 describe TopicController do
   describe 'Create new topic' do
     it 'let a logged in admin view topic form' do
-      user = User.create(:username => "nili678",:email => "niliach@example.com", :password => "iesha", :admin =>true)
+      user = User.create(:username => "adminuser",:email => "adminuser@example.com", :password => "adminpass", :admin =>true)
 
       visit '/login'
 
-      fill_in(:username, :with => "nili678")
-      fill_in(:password, :with => "iesha")
+      fill_in(:username, :with => "adminuser")
+      fill_in(:password, :with => "adminpass")
       click_button 'Login'
 
       visit '/topics/new'
@@ -16,12 +16,12 @@ describe TopicController do
     end
 
     it 'let a logged in admin create a topic' do
-      user = User.create(:username => "nili678",:email => "niliach@example.com", :password => "iesha", :admin =>true)
+      user = User.create(:username => "adminuser",:email => "adminuser@example.com", :password => "adminpass", :admin =>true)
 
       visit '/login'
 
-      fill_in(:username, :with => "nili678")
-      fill_in(:password, :with => "iesha")
+      fill_in(:username, :with => "adminuser")
+      fill_in(:password, :with => "adminpass")
       click_button 'Login'
 
       visit '/topics/new'
