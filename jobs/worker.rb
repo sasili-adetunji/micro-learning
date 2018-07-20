@@ -41,8 +41,9 @@ def send_mail (recipient, url, topic, username)
 end
 
 
-scheduler.in '1s' do
-  send_resource 
+scheduler.cron '5 0 * * *' do
+  # send email every day, five minutes after midnight
+  send_resource
 end
 
 scheduler.join
