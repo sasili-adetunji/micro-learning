@@ -1,4 +1,3 @@
-
 require 'coveralls'
 require 'simplecov'
 require 'simplecov-console'
@@ -12,14 +11,13 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
 )
 SimpleCov.start
 
-ENV["RACK_ENV"] = "test"
+ENV['RACK_ENV'] = 'test'
 
 require 'rack/test'
 require 'rspec'
 require_relative '../config/environment'
 require 'capybara/rspec'
 require 'capybara/dsl'
-
 
 # remove loggers
 ActiveRecord::Base.logger = nil

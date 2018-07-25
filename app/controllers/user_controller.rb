@@ -1,30 +1,29 @@
 class UserController < ApplicationController
-
   get '/signup' do
     if logged_in?
-        redirect to "/topics"
+      redirect to '/topics'
     else
-        erb :"/users/register"
+      erb :"/users/register"
     end
   end
 
   # CREATE a new user based on form information
   post '/signup' do
     @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-    @user.admin = params[:admin] == "yes" ? true : false
+    @user.admin = params[:admin] == 'yes'
     if @user.save
-        session[:user_id] = @user.id
-        redirect to "/topics"
+      session[:user_id] = @user.id
+      redirect to '/topics'
     else
-        flash[:error] = "Fill all the fields properly!"
-        redirect to "/signup"
+      flash[:error] = 'Fill all the fields properly!'
+      redirect to '/signup'
     end
   end
 
   # User currently logged in will view the Courses page directly
   get '/login' do
     if logged_in?
-      redirect to "/topics"
+      redirect to '/topics'
     else
       erb :"/users/login"
     end
@@ -35,10 +34,10 @@ class UserController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect to "/topics"
+      redirect to '/topics'
     else
-      flash[:error] = "Incorrect login credentials"
-      redirect to "/login"
+      flash[:error] = 'Incorrect login credentials'
+      redirect to '/login'
     end
   end
 
@@ -46,10 +45,10 @@ class UserController < ApplicationController
   get '/logout' do
     if logged_in?
       session.clear
-      flash[:message] = "You have successfully logged out"
-      redirect to "/login"
+      flash[:message] = 'You have successfully logged out'
+      redirect to '/login'
     else
-      redirect to "/"
+      redirect to '/'
     end
   end
 end

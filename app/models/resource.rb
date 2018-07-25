@@ -4,4 +4,3 @@ class Resource < ActiveRecord::Base
   has_many :topic_resources
   has_many :topics, through: :topic_resources
 end
-
