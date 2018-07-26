@@ -3,7 +3,8 @@ require 'spec_helper'
 describe ResourceController do
   describe 'Create new resource' do
     it 'let a logged in admin view resource form' do
-      user = User.create(username: 'adminuser', email: 'adminuser@example.com', password: 'adminpass', admin: true)
+      User.create(username: 'adminuser', email: 'adminuser@example.com',
+                  password: 'adminpass', admin: true)
 
       visit '/login'
 
@@ -17,7 +18,8 @@ describe ResourceController do
     end
 
     it 'let a logged in admin create a resource' do
-      user = User.create(username: 'adminuser', email: 'adminuser@example.com', password: 'adminpass', admin: true)
+      User.create(username: 'adminuser', email: 'adminuser@example.com',
+                  password: 'adminpass', admin: true)
 
       visit '/login'
 
@@ -41,8 +43,10 @@ describe ResourceController do
 
   describe 'Resource index pages' do
     it 'let a logged in user view the topic index page' do
-      user = User.create(username: 'tester', email: 'tester@example.com', password: 'tester', admin: true)
-      resource = Resource.create(title: 'CSS Essentials', description: 'Cascading Style sheet', url: 'css.org')
+      User.create(username: 'tester', email: 'tester@example.com',
+                  password: 'tester', admin: true)
+      resource = Resource.create(title: 'CSS Essentials',
+                                 description: 'Cascading Style sheet', url: 'css.org')
 
       visit '/login'
 

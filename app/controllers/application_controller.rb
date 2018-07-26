@@ -1,10 +1,10 @@
 require './config/environment'
-
+# Base Controller for the application
 class ApplicationController < Sinatra::Base
   enable :sessions
   enable :static
   use Rack::Flash
-  set :views, proc { File.join(root, '../views/') }
+  set :views, (proc { File.join(root, '../views/') })
   set :public_folder, 'public'
   set :session_secret, 'secret_courses'
 
@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
   helpers do
     # Check if a user is logged into their account
     def logged_in?
-      !!current_user
+      current_user
     end
 
     # Find current user

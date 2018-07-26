@@ -3,7 +3,8 @@ require 'spec_helper'
 describe TopicController do
   describe 'Create new topic' do
     it 'let a logged in admin view topic form' do
-      user = User.create(username: 'adminuser', email: 'adminuser@example.com', password: 'adminpass', admin: true)
+      User.create(username: 'adminuser', email: 'adminuser@example.com',
+                  password: 'adminpass', admin: true)
 
       visit '/login'
 
@@ -16,7 +17,8 @@ describe TopicController do
     end
 
     it 'let a logged in admin create a topic' do
-      user = User.create(username: 'adminuser', email: 'adminuser@example.com', password: 'adminpass', admin: true)
+      User.create(username: 'adminuser', email: 'adminuser@example.com',
+                  password: 'adminpass', admin: true)
 
       visit '/login'
 
@@ -38,11 +40,15 @@ describe TopicController do
 
   describe 'Topic index pages' do
     it 'let a logged in user view the topic index page' do
-      user1 = User.create(username: 'tester', email: 'tester@example.com', password: 'tester', admin: true)
-      topic1 = Topic.create(name: 'CSS Essentials', description: 'Cascading style sheet is essential for front end development')
+      User.create(username: 'tester', email: 'tester@example.com',
+                  password: 'tester', admin: true)
+      topic1 = Topic.create(name: 'CSS Essentials',
+                            description: 'CSS is essential for front end')
 
-      user2 = User.create(username: 'tester2', email: 'teter2@example.com', password: 'tester2', admin: false)
-      topic2 = Topic.create(name: 'Python Fundamentals', description: 'Python is a cool programming language')
+      User.create(username: 'tester2', email: 'teter2@example.com',
+                  password: 'tester2', admin: false)
+      topic2 = Topic.create(name: 'Python Fundamentals',
+                            description: 'Python is a cool programming language')
 
       visit '/login'
 
@@ -63,9 +69,12 @@ describe TopicController do
 
   context 'Single topic page' do
     it 'let a logged in user view single topic page' do
-      user1 = User.create(username: 'testert', email: 'tester2@example.com', password: 'teasing', admin: false)
-      user2 = User.create(username: 'testers', email: 'tester3@example.com', password: 'anothertest', admin: true)
-      topic = Topic.create(name: 'CSS Fundamentals', description: 'CSS is necessary for frontend')
+      User.create(username: 'testert', email: 'tester2@example.com',
+                  password: 'teasing', admin: false)
+      User.create(username: 'testers', email: 'tester3@example.com',
+                  password: 'anothertest', admin: true)
+      topic = Topic.create(name: 'CSS Fundamentals',
+                           description: 'CSS is necessary for frontend')
 
       visit '/login'
 
@@ -80,7 +89,8 @@ describe TopicController do
     end
 
     it 'does not let a user view single topic page if not logged in' do
-      topic = Topic.create(name: 'CSS Fundamentals', description: 'CSS is necessary for frontend')
+      topic = Topic.create(name: 'CSS Fundamentals',
+                           description: 'CSS is necessary for frontend')
 
       visit "/topics/#{topic.id}"
 
@@ -90,8 +100,10 @@ describe TopicController do
 
   context 'Edit single topic page' do
     it 'let a logged in admin edit a topic' do
-      user = User.create(username: 'teasers', email: 'testerss@example.com', password: 'testingtest', admin: true)
-      topic = Topic.create(name: 'CSS Fundamentals', description: 'CSS is necessary for frontend')
+      User.create(username: 'teasers', email: 'testerss@example.com',
+                  password: 'testingtest', admin: true)
+      topic = Topic.create(name: 'CSS Fundamentals',
+                           description: 'CSS is necessary for frontend')
 
       visit '/login'
 

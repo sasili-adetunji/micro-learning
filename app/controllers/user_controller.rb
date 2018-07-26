@@ -1,3 +1,4 @@
+# User Controller for the application
 class UserController < ApplicationController
   get '/signup' do
     if logged_in?
@@ -9,10 +10,13 @@ class UserController < ApplicationController
 
   # CREATE a new user based on form information
   post '/signup' do
-    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    @user = User.new(username: params[:username], email: params[:email],
+                     password: params[:password])
     @user.admin = params[:admin] == 'yes'
     if @user.save
       session[:user_id] = @user.id
+      flash[:message] = 'Success you have successfully registered'
+
       redirect to '/topics'
     else
       flash[:error] = 'Fill all the fields properly!'

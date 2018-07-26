@@ -32,8 +32,8 @@ def send_mail(recipient, url, topic, username)
       user_name: ENV['GMAIL_ID'],
       password: ENV['GMAIL_PASS'],
       authentication: :plain,
-      domain: 'localhost.localdomain'
-    }
+      domain: 'localhost.localdomain',
+    },
   }
   Pony.mail(to: recipient)
 end

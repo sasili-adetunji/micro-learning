@@ -1,3 +1,4 @@
+# Topic model
 class Topic < ActiveRecord::Base
   validates :name, :description, presence: true
   has_many :topic_resources

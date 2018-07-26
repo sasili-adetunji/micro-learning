@@ -12,7 +12,7 @@ describe UserController do
                          password: 'testpass')
       params = {
         username: 'testname',
-        password: 'testpass'
+        password: 'testpass',
       }
       post '/login', params
       session = {}
@@ -28,7 +28,7 @@ describe UserController do
                   password: 'testpass')
       params = {
         username: 'testname',
-        password: 'testpass'
+        password: 'testpass',
       }
       post '/login', params
       get '/logout'
@@ -51,7 +51,7 @@ describe UserController do
       params = {
         username: 'test',
         email: '',
-        password: 'test'
+        password: 'test',
       }
       post '/signup', params
       expect(last_response.location).to include('/signup')
@@ -61,7 +61,7 @@ describe UserController do
       params = {
         username: 'testuser',
         email: 'testuser@example.com',
-        password: ''
+        password: '',
       }
 
       post '/signup', params
@@ -72,7 +72,7 @@ describe UserController do
       params = {
         username: '',
         email: 'testuser@example.com',
-        password: 'testpass'
+        password: 'testpass',
       }
       post '/signup', params
       expect(last_response.location).to include('/signup')
@@ -82,7 +82,7 @@ describe UserController do
       params = {
         username: 'tester',
         email: 'anothertest@example.com',
-        password: 'anotherpass'
+        password: 'anotherpass',
       }
       post '/signup', params
       expect(last_response.location).to include('/topics')
@@ -93,7 +93,7 @@ describe UserController do
                          password: 'realpass')
       params = {
         username: 'realtest',
-        password: 'realpass'
+        password: 'realpass',
       }
       post '/login', params
       session = {}

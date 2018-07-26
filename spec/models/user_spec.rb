@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
         user.should_not be_valid
       end
     end
+
     context 'should not have a invalid username' do
       it 'is blank username', focus: true do
         user = User.new(email: 'e@example.com', password: 'testpass',

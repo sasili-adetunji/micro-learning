@@ -11,7 +11,6 @@ gem 'rake'
 gem 'require_all'
 gem 'require_relative'
 gem 'rubocop', require: false
-gem 'rubocop'
 gem 'rubocop-airbnb'
 gem 'rufus-scheduler', '~> 3.2'
 gem 'sinatra'

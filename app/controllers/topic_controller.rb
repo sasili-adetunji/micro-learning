@@ -1,3 +1,4 @@
+# Topic Controller for the application
 class TopicController < ApplicationController
   # View all topics
   get '/topics' do

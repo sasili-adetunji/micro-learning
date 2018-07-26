@@ -1,3 +1,4 @@
+# Resource Controller for the application
 class ResourceController < ApplicationController
   # View all topics
   get '/resources' do
@@ -27,7 +28,9 @@ class ResourceController < ApplicationController
   # admin CREATE a new resource
   post '/resources' do
     if logged_in? && current_user.admin
-      @new_resource = Resource.create(title: params[:title], description: params[:description], url: params[:url])
+      @new_resource = Resource.create(title: params[:title],
+                                      description: params[:description],
+                                      url: params[:url])
       if @new_resource.save
         flash[:message] = 'Resource created Successfully'
         redirect to '/resources'
@@ -48,11 +51,10 @@ class ResourceController < ApplicationController
       @resources = Resource.find(params[:resource_ids])
       if existing_resources
         flash[:error] = 'The resource already existed'
-        redirect to "/resources/#{@topic.id}"
       else
         @topic.resources << @resources
-        redirect to "/resources/#{@topic.id}"
       end
+      redirect to "/resources/#{@topic.id}"
     else
       redirect to :"/login"
     end
