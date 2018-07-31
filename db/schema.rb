@@ -10,34 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_06_141543) do
-
-  create_table "resources", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.string "url"
+ActiveRecord::Schema.define(version: 20_180_706_141_543) do
+  create_table 'resources', force: :cascade do |t|
+    t.string 'title'
+    t.string 'description'
+    t.string 'url'
   end
 
-  create_table "topic_resources", force: :cascade do |t|
-    t.integer "topic_id"
-    t.integer "resource_id"
+  create_table 'topic_resources', force: :cascade do |t|
+    t.integer 'topic_id'
+    t.integer 'resource_id'
   end
 
-  create_table "topics", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+  create_table 'topics', force: :cascade do |t|
+    t.string 'name'
+    t.string 'description'
   end
 
-  create_table "user_topics", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "topic_id"
+  create_table 'user_topics', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'topic_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
-    t.boolean "admin"
+  create_table 'users', force: :cascade do |t|
+    t.string 'username'
+    t.string 'email'
+    t.string 'password_digest'
+    t.boolean 'admin'
   end
-
 end
